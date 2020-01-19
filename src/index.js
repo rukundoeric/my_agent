@@ -1,6 +1,5 @@
 const express = require("express");
 const dotenv = require("dotenv");
-const cron = require("node-cron");
 const db = require("./sequelize/models/index.js");
 const api = require("./api/router/index.js");
 const globalMiddleware = require("./middleware/globalMiddleware");
@@ -25,12 +24,6 @@ app.use((req, res) => {
 });
 
 sequelize.sync().then(() => {
-  cron.schedule("*/59 * * * *", () => {
-    purgeWorker();
-  });
-  cron.schedule("*/5 * * * *", () => {
-    sendMailWorker();
-  });
   app.listen(port, () => {
     console.log(
       `Database succesfully connected\nPID: ${process.pid} Server listening on port: ${port} in ${process.env.NODE_ENV} mode`
