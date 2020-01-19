@@ -14,9 +14,22 @@ const firstName = Joi.string()
 const lastName = Joi.string()
   .required()
   .label("lastName is required and should be a string");
+const servicename = Joi.string()
+  .required()
+  .label("servicename is required and should be a string");
+
+  const title = Joi.string()
+  .required()
+  .label("tile is required and should be a string");
+  const amount = Joi.number()
+  .required()
+  .label("amount is required and should be a number");
 
 module.exports = {
   email,
   lastName,
-  firstName
+  firstName,
+  servicename,
+  title,
+  amount
 };

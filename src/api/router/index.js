@@ -1,10 +1,10 @@
 const express = require('express');
 const api = express();
 const welcome = require('./welcome');
-const user =  require('./User');
+const voluntary_sale = require('./voluntary_sale');
 
 // Routers go here
 api.use('/', welcome);
-api.use('/users', user);
+api.use('/service', voluntary_sale)
 
 module.exports = api;

@@ -1,5 +1,5 @@
 const Joi = require('@hapi/joi');
-const { email, firstName, lastName } = require('./schemas');
+const { email, firstName, lastName, servicename, title, amount } = require('./schemas');
 
 module.exports = {
   user: Joi.object().keys({
@@ -7,4 +7,9 @@ module.exports = {
     firstName,
     lastName
   }),
+  service: Joi.object().keys({
+    servicename,
+    title,
+    amount
+  })
 }
